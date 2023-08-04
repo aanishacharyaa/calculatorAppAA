@@ -1,10 +1,23 @@
 ﻿@page
-@model IndexModel
+@model calculatorAppAA.Pages.IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Calculator App";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+
+<h2>@ViewData["Title"]</h2>
+
+<form method="post">
+    <input type="text" asp-for="Number1" /> <!-- Input field for the first number -->
+    <select asp-for="Operator">
+        <!-- Dropdown to select the operator -->
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
+    <input type="text" asp-for="Number2" /> <!-- Input field for the second number -->
+    <button type="submit">Calculate</button>
+</form>
+
+<h3>Result: @Model.Result</h3>

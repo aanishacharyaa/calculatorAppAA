@@ -9,8 +9,8 @@ namespace CalculatorLibrary.Tests
         
         public void TestAdd()
         {
-       
-            Calculator calculator = new Calculator();
+
+            CalculatorClass calculator = new CalculatorClass();
 
  
             int result = calculator.Add(2, 3);
@@ -23,7 +23,7 @@ namespace CalculatorLibrary.Tests
         public void TestSubtract()
         {
             // Arrange
-            Calculator calculator = new Calculator();
+            CalculatorClass calculator = new CalculatorClass();
 
             // Act
             int result = calculator.Subtract(5, 2);

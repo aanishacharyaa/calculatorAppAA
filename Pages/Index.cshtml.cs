@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using CalculatorLibrary;
 
 namespace calculatorAppAA.Pages
 {
@@ -25,21 +26,22 @@ namespace calculatorAppAA.Pages
 
         public void OnPost()
         {
-            // Perform the calculation based on the selected operator
+            CalculatorClass calculator = new CalculatorClass();
+
             switch (Operator)
             {
                 case "+":
-                    Result = Number1 + Number2;
+                    Result = calculator.Add(Number1, Number2);
                     break;
                 case "-":
-                    Result = Number1 - Number2;
+                    Result = calculator.Subtract(Number1, Number2);
                     break;
                 case "*":
-                    Result = Number1 * Number2;
+                    Result = calculator.Multiply(Number1, Number2);
                     break;
                 case "/":
                     if (Number2 != 0)
-                        Result = Number1 / Number2;
+                        Result = calculator.Divide(Number1, Number2);
                     else
                         Result = 0; // Handle division by zero
                     break;
@@ -48,6 +50,7 @@ namespace calculatorAppAA.Pages
                     break;
             }
         }
+
 
         private readonly ILogger<IndexModel> _logger;
 
